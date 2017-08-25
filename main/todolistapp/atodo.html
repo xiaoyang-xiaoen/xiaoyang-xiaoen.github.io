@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/rem.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+    <title>便签---移动端</title>
+    <link rel="stylesheet" href="css/atodo.css">
+</head>
+<body>
+<!--待办事件-->
+<div class="waitbox">
+    <header>
+        <div class="back"><span class="iconfont">&#xe600;</span></div>
+        <span class="title"><span class="iconfont">未完成事件</span></span>
+        <div class="setting move"><span class="iconfont">&#xe600;</span></div>
+        <div class="write addbtn "><span class="iconfont">T/+</span></div>
+    </header>
+    <main class="wait item">
+        <ul>
+        </ul>
+        <div class="show">
+            <span class="iconfont">&#xe602;</span>
+            <div class="showtext"></div>
+        </div>
+    </main>
+    <footer>
+        <input type="button" value="移动到已完成" class="move">
+        <input type="button" value="全选" class="selectall">
+        <input type="button" value="全不选" class="selectnone">
+        <input type="button" value="清除" class="clearbtn">
+    </footer>
+</div>
+<!--添加新事件-->
+<div class="addbox">
+    <header>
+        <div class="menu"><span class="iconfont">With me</span></div>
+        <span class="title"><span class="iconfont">添加新事件</span></span>
+        <div class="setting close"><span class="iconfont">&#xe600;</span></div>
+    </header>
+    <main class="add">
+        <textarea autofocus class="addtext" id="text"></textarea>
+    </main>
+    <footer>
+        <input type="button" value="提交" class="addbtn" id="submit">
+        <input type="button" value="查看已完成" class="move">
+        <input type="button" value="查看未完成" class="close">
+    </footer>
+</div>
+<!--已完成事件-->
+<div class="donebox">
+    <header>
+        <div class="back"><span class="iconfont">&#xe600;</span></div>
+        <span class="title"><span class="iconfont">已完成事件</span></span>
+        <div class="setting"><span class="iconfont">&#xe61c;</span></div>
+        <div class="write addbtn"><span class="iconfont">T/+</span></div>
+    </header>
+    <main class="done item">
+        <ul>
+        </ul>
+        <div class="show">
+            <span class="iconfont">&#xe602;</span>
+            <div class="showtext"></div>
+        </div>
+    </main>
+    <footer>
+        <input type="button" value="查看未完成" class="close">
+        <input type="button" value="全选" class="selectall">
+        <input type="button" value="全不选" class="selectnone">
+        <input type="button" value="清除" class="clearbtn">
+    </footer>
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/atodo.js"></script>
+</html>

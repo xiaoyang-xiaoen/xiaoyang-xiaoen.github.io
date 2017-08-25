@@ -1,0 +1,462 @@
+/*导航栏开始*/
+iframe {
+	border-width: 2px;
+	border-style: inset;
+	border-color: initial;
+	border-image: initial;
+}
+
+header{
+	background: url(../imgs/bg-1.jpg) 50% 0 no-repeat;
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 5px solid #7f5136;
+	position: fixed;
+	top: 0;
+	z-index: 999999;
+}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 1px 0;
+	position: relative;
+}
+.clearfix {
+	zoom: 1;
+}
+.logo{
+	float: left;
+}
+.logo a{
+	width: 100%;
+	display: block;
+}
+.logo img{
+	width: 100%;
+}
+img{
+	vertical-align: top;
+}
+img, fieldset {
+	border: 0 none;
+}
+header nav {
+	margin: 15px 0 0;
+	float: right;
+}
+nav, section {
+	display: block;
+}
+.displayMobile {
+	display: none;
+}
+header nav ul, header nav li {
+	font-size: 0;
+}
+
+header nav li {
+	display: inline-block;
+}
+header nav>ul>li>a {
+	font-size: 15px;
+	line-height: 30px;
+	color: #a6652e;
+	text-align: center;
+	width: 85px;
+	display: inline-block;
+}
+a, a:link {
+	text-decoration: none;
+}
+header nav>ul>li>span {
+	vertical-align: top;
+	height: 11px;
+	margin-top: 8px;
+	border-right: 1px solid #cea27b;
+	display: inline-block;
+}
+
+header .displayPc {
+	display: inline-block;
+}
+header nav>ul>li:last-child>a {
+	padding-right: 0;
+}
+/*导航栏结束*/
+/* 活动区域开始 */
+.activityPanel {
+    background: url('../imgs/activity_bg.jpg') 50% 0 repeat-y;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 1px 0;
+    position: relative;
+}
+.pageTitle {
+    font-size: 38px;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: #875b36;
+    padding: 150px 0 30px;
+}
+.pageTitle i {
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    padding: 0 35px;
+    border-top: 1px solid #ceac7d;
+}
+i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+.pageTitle span {
+    font-size: 42px;
+    font-weight: normal;
+    padding: 0 10px;
+}
+.activityList li {
+    height: 2317px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.activityToolbar {
+    background: #9e7153;
+    width: 100%;
+    position: fixed;
+    bottom: -25px;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 1px 0;
+    position: relative;
+}
+.clearfix {
+    zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.activityToolbar .floatL {
+    padding: 12px 0;
+}
+
+.floatL {
+    float: left;
+}
+.activityToolbar .floatL span, .activityToolbar .floatL a {
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+}
+.activityToolbar .floatL span span {
+    color: #faa203;
+}
+.activityToolbar .floatL .displayPc {
+    display: inline-block;
+}
+.activityToolbar .floatL a {
+    text-decoration: underline;
+    padding-left: 20px;
+}
+.activityToolbar .floatR {
+    width: 730px;
+    padding: 10px 0;
+}
+
+.floatR {
+    float: right;
+}
+
+.displayPc {
+    display: block;
+    margin: 0 auto;
+}
+.activityToolbar .royalSlider {
+    background: url('../imgs/activity_toolbar_bg.png') 50% 0 no-repeat;
+    width: 590px;
+    height: 57px;
+    padding: 0 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.royalSlider {
+    width: 100%;
+    height: auto;
+}
+
+.royalSlider {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    direction: ltr;
+}
+.rsOverflow {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.royalSlider > * {
+    float: left;
+}
+.rsContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.rsSlide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.rsContent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.activityToolbar .rsThumbs {
+    width: 100%;
+    position: static;
+    overflow: hidden;
+}
+.rsTabs, .rsThumbs {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.rsThumbs {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    z-index: 22;
+}
+.rsNav {
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.rsArrow, .rsNav, .rsThumbsArrow {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}
+.royalSlider > * {
+    float: left;
+}
+.activityToolbar .rsThumbsContainer {
+    overflow: hidden;
+    zoom: 1;
+}
+.rsNavItem {
+    -webkit-tap-highlight-color: rgba(0,0,0,0.25);
+}
+
+.rsThumb {
+    float: left;
+    position: relative;
+}
+.activityToolbar .rsTmb {
+    font-size: 12px;
+    line-height: 32px;
+    color: #fff;
+    vertical-align: top;
+    width: auto;
+    height: auto;
+    min-width: 125px;
+    margin: 0 20px;
+    padding: 28px 0 0;
+    float: left;
+}
+.activityToolbar .rsTmb a:hover, .activityToolbar .rsNavSelected .rsTmb a {
+    text-decoration: none;
+    background: url('../imgs/activity_toolbar_active.png') 50% 0 no-repeat;
+}
+
+.activityToolbar .rsTmb a {
+    font-size: 15px;
+    line-height: 32px;
+    color: #fff;
+    background: url('../imgs/activity_toolbar_link.png') 50% 0 no-repeat;
+    padding: 34px 5px 0;
+}
+.activityToolbar .rsThumbsArrowDisabled {
+    display: none;
+}
+
+.activityToolbar .rsThumbsArrowLeft, .activityToolbar .rsThumbsArrowRight {
+    width: 16px;
+    height: 28px;
+    background: url('../imgs/activity_toolbar_prev.png') 0 0 no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rsArrow, .rsNav, .rsThumbsArrow {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}
+
+.rsArrow, .rsThumbsArrow {
+    cursor: pointer;
+}
+.activityToolbar .rsThumbsArrowDisabled {
+    display: none;
+}
+
+.activityToolbar .rsThumbsArrowRight {
+    background: url('../imgs/activity_toolbar_next.png') 0 0 no-repeat;
+    left: auto;
+    right: 0;
+}
+
+.activityToolbar .rsThumbsArrowLeft, .activityToolbar .rsThumbsArrowRight {
+    width: 16px;
+    height: 28px;
+    background: url('../imgs/activity_toolbar_prev.png') 0 0 no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rsArrow, .rsNav, .rsThumbsArrow {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}
+
+.rsArrow, .rsThumbsArrow {
+    cursor: pointer;
+}
+.bottomBlank {
+    background: url('../imgs/inherit_banner_img_4.png') 50% 0 no-repeat;
+    height: 151px;
+}
+element.style {
+    position: relative;
+}
+/* 活动区域结束 */
+/* 底部开始 */
+footer {
+	width: auto;
+	height: 54px;
+    background: #007c7d;
+    position: relative;
+}
+footer .gototop {
+    background: url('../imgs/gototop.png') 0 0 no-repeat;
+    width: 74px;
+    height: 74px;
+    position: absolute;
+    top: -90px;
+    right: 0;
+}
+footer .container {
+    padding: 0;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 1px 0;
+    position: relative;
+}
+footer .logo {
+    width: 60px;
+    margin-left: -30px;
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    overflow: hidden;
+}
+footer .logo a {
+    width: 321.7%;
+}
+.logo a {
+    width: 100%;
+    display: block;
+}
+.logo img {
+    width: 100%;
+}
+footer .displayPc {
+    display: inline-block;
+}
+.copyrights {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    float: left;
+}
+.displayPc {
+    display: block;
+    margin: 0 auto;
+}
+footer nav {
+    margin-right: -150px;
+    float: right;
+}
+footer nav li {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    height: 50px;
+    overflow: hidden;
+    display: inline-block;
+}
+footer nav li .wechat_weibo {
+    position: relative;
+}
+footer nav li a {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    vertical-align: top;
+    height: 50px;
+    padding: 0 8px;
+    display: inline-block;
+}
+footer nav li span {
+    vertical-align: top;
+    height: 15px;
+    margin-top: 18px;
+    border-right: 1px dotted #dfdfdf;
+    display: inline-block;
+}
+footer nav li {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    height: 50px;
+    overflow: hidden;
+    display: inline-block;
+}
+.copyrights {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    float: left;
+}
+/* 底部结束 */
+

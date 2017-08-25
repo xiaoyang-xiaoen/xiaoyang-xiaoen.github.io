@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+		<script>
+			// 跨域	jsonp	18634863721
+			$(function(){
+				$("#province").click(function(){
+					$.ajax({
+						dataType:"JSONP",
+						url:"http://api.jisuapi.com/area/province?appkey=861502a4f67b0780",
+						success:function(obj){
+							$.each(obj.result,function(index,value) {
+								$("<option>").attr("value",value.id).html(value.name).appendTo($("#province"))
+							});
+						}
+					})
+				}).change(function(){
+					if($(this).val()=="0"){
+						$("#city,#town").children("[value=0]").nextAll().remove();
+						return;
+					}
+					$("#city,#town").children("[value=0]").nextAll().remove();
+					$.ajax({
+						dataType:"JSONP",
+						url:"http://api.jisuapi.com/area/city?parentid="+$(this).val()+"&appkey=861502a4f67b0780",
+						success:function(obj){
+							$.each(obj.result,function(index,value) {
+								$("<option>").attr("value",value.id).html(value.name).appendTo($("#city"))
+							});
+						}
+					})
+				})
+				//1||24||26||31||32||33||34||51
+				$("#city").change(function(){
+					var preid=$(this).prev().val();
+					if(preid=="1"||preid=="24"||preid=="26"||preid=="31"||preid=="32"||preid=="33"||preid=="34"||preid=="51"){
+						return;
+					}
+					if($(this).val()=="0"){
+						$("#town").children("[value=0]").nextAll().remove();
+						return;
+					}
+					$("#town").children("[value=0]").nextAll().remove();
+					$.ajax({
+						dataType:"JSONP",
+						url:"http://api.jisuapi.com/area/town?parentid="+$(this).val()+"&appkey=861502a4f67b0780",
+						success:function(obj){
+							$.each(obj.result,function(index,value){
+								$("<option>").attr("value",value.id).html(value.name).appendTo($("#town"))
+							});
+						}
+					})
+				})
+				// city	week date temp temphigh templow img 1  weather
+				// daily  date week day.img day.temphigh day.weather night.templow
+				$("button").click(function(){
+					if($(".foot ul").html()){
+						$(".foot ul").html("");
+					}
+					$.ajax({
+						dataType:"JSONP",
+						url:"http://api.jisuapi.com/weather/query?appkey=861502a4f67b0780&city="+$("#city").children(":selected").html(),
+						success:function(obj){
+							$.each(obj, function(index,value) {
+								$("h3 span").eq(0).html(value.date);
+								$("h3 span").eq(1).html(value.week);
+								$("h3 span").eq(2).html(value.city);
+								$(".first img").attr("src","img/weathercn/"+value.img+".png");
+								$(".first .now span").eq(0).html(value.temp+"℃");
+								$(".first .now span").eq(1).html("实时");
+								$(".first .temp").html(value.templow+"~"+value.temphigh+"℃");
+								$(".first .sunny").html(value.weather);
+								for(let i in value){
+									if(i=="daily"){
+										for(let j in value[i]){
+											if(j>0&&j<5){
+												$("<li>").html(function(){
+													return "<p class='week'>"+value[i][j].week+"</p><p class='date'>"+value[i][j].date+"</p><img src='img/weathercn/"+value[i][j].day.img+".png' alt='' /><p class='temp'>"+value[i][j].night.templow+"~"+value[i][j].day.temphigh+"℃"+"</p><p class='sunny'>"+value[i][j].day.weather+"</p>";
+												}).appendTo(".foot ul");
+											}
+											
+										}
+									}									
+								}
+							});
+						}
+					})
+				})
+			})
+
+		</script>
+	</head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		select{
+			width: 60px;
+			height: 25px;
+			border: 1px solid skyblue;
+			border-radius: 5px;
+			background: deepskyblue;
+			color: #fff;
+		}
+		.box{
+			width: 320px;
+			margin: 30px auto;
+		}
+		button{
+			width: 80px;
+			padding: 5px 20px;
+			margin-left: 20px;
+			border: 1px solid skyblue;
+			border-radius: 5px;
+			background: deepskyblue;
+			color: #fff;
+			cursor: pointer;
+		}
+		.weather{
+			width: 600px;
+			height: 350px;
+			background: url('img/weathercn/wenli.jpg') ;
+			/* opacity: 0.5; */
+			background-color: #fff;
+			color: #fff;
+			margin: 30px auto;
+			border-radius: 5px;
+			border: 1px solid #1E4774;
+		}
+		h3{
+			padding: 0 15px;
+			height: 25px;
+			font-weight: 500;
+		}
+		h3 span{
+			margin-right: 10px;
+		}
+		h3 span:last-child{
+			font-weight: 600;
+		}
+		.foot{
+			width: 100%;
+		}
+		.first{
+			float: left;
+			width: 160px;
+			text-align: center;
+			font-size: 24px;
+			color: #1E4774;
+			padding: 25px 0;
+		}
+		.now{
+			padding: 10px 0;
+			font-size: 16px;
+		}
+		.now span:first-child{
+			font-size: 36px;
+		}
+		.temp{
+			padding: 15px 0;
+		}
+		.foot ul{
+			padding: 15px 0;
+			width: 440px;
+			float: left;
+		}
+		.foot ul li{
+			width: 110px;
+			border-left: 1px solid #1E4774;
+			box-sizing: border-box;
+			padding: 15px 0;
+			text-align: center;
+			float: left;
+		}
+		.foot ul li p{
+			margin-bottom: 10px;
+		}
+		.week{
+			font-size: 24px;
+		}
+	</style>
+	<body>
+		<div class="box">			
+			<select name="" id="province">
+				<option value="0">省份</option>
+			</select>
+			<select name="" id="city">
+				<option value="0">市</option>
+			</select>
+			<select name="" id="town">
+				<option value="0">县</option>
+			</select>
+			<button>天气</button>
+		</div>
+		<div class="weather">
+			<h3><span></span><span></span><span></span></h3>
+			<div class="foot">
+				<div class="first">
+					<img src="" alt="" />
+					<p class="now"><span></span><span></span></p>
+					<p class="temp"></p>
+					<p class="sunny"></p>
+				</div>
+				<ul>
+				</ul>
+			</div>
+			
+		</div>
+	</body>
+</html>

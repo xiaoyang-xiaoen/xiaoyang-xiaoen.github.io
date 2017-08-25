@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/doller函数.js"></script>
+    <script src="js/animate(1).js"></script>
+</head>
+<style>
+    *{
+        margin:0;
+    }
+    img{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 0 #fff;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    .footer{
+        width: 100%;
+        height: 100%;
+        background: url("img/img/1212.jpg") no-repeat center/cover;
+    }
+    .footer>img{
+        width: 100%;
+        height: 100%;
+    }
+    .kaichang{
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 100;
+        position: absolute;
+        left:0;
+        top:0;
+    }
+    .shuzi{
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        left:0;
+        right: 0;
+        top:0;
+        bottom: 0;
+        margin: auto;
+    }
+    .shuzi>img{
+        width: 100%;
+        height: 100%;
+
+    }
+    .live,.fenshu{
+        color: #fff;
+    }
+</style>
+<body>
+    <div class="kaichang">
+        <div class="shuzi">
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="live">生命值：10</div>
+        <div class="fenshu">分数：0</div>
+
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        function Dzyx(liveobj,fenshuobj) {
+            this.length=3;
+            this.arr=[];
+            this.speed=5;
+            this.t=0
+            this.live=10;
+            this.fenshu=0;
+            this.liveobj=liveobj;
+            this.fenshuobj=fenshuobj;
+        }
+        Dzyx.prototype={
+            play:function () {
+                this.getletter();
+                this.move();
+                this.caozuo()
+            },
+            getletter:function () {
+                for(var i=0;i<this.length;i++){
+                    this.getRandom();
+                }
+            },
+            getRandom:function () {
+                do{
+                    var code=Math.round(Math.random()*25+65);
+                    var word=String.fromCharCode(code);
+                }while (this.check(word))
+                var left=Math.round(Math.random()*1000);
+                var top=Math.round(Math.random()*50+20);
+                let img=document.createElement("img")
+                img.alt=word;
+                img.src=`img/img/${word}.jpg`
+                img.style.cssText=`
+                    position:absolute;
+                    left:${left}px;
+                    top:${top}px
+                `
+                document.body.appendChild(img);
+                this.arr.push(img);
+            },
+            check:function (word) {
+                return this.arr.some(function (dom) {
+                        return dom.alt==word;
+                })
+            },
+            move:function () {
+                let that=this;
+                this.t=setInterval(function () {
+                    var speed=that.speed;
+                    for(var i=0;i<that.arr.length;i++){
+                        let ot=that.arr[i].offsetTop;
+                        let nt=ot+speed;
+                        that.arr[i].style.top= nt+"px";
+                        if(nt>500){
+                            that.live--;
+                            if(that.live<=0){
+                                alert("game over");
+                                clearInterval(that.t);
+                                return;
+                            }
+                            document.body.removeChild(that.arr[i]);
+                            that.arr.splice(i,1);
+                            that.getRandom();
+                            that.liveobj.innerHTML=`生命值：${that.live}`
+
+                        }
+                    }
+                },200)
+            },
+            caozuo:function () {
+                let that=this;
+                document.onkeydown=function (e) {
+                    var key=e.keyCode;
+                    var word=String.fromCharCode(key);
+                    var index=that.arr.findIndex(function (value) {
+                        return value.alt==word;
+                    })
+                    if(index!=-1){
+                        document.body.removeChild(that.arr[index]);
+                        that.arr.splice(index,1);
+                        that.fenshu++;
+                        that.fenshuobj.innerHTML=`分数：${that.fenshu}`
+                        if(that.fenshu==10){
+                            var result=confirm("恭喜过关，确认进人下一关");
+                            if(result){
+                                that.next()
+                            }else{
+                                window.close();
+                            }
+                        }
+
+                        that.getRandom();
+                    }
+                }
+            },
+            next:function () {
+                clearInterval(this.t);
+                this.arr.forEach(function (value) {
+                    document.body.removeChild(value)
+                });
+                this.arr=[];
+                this.length++;
+                this.speed+=2;
+                this.t=0
+                this.live+=1;
+                this.fenshu=0;
+                this.liveobj.innerHTML=`生命值：${this.live}`
+                this.fenshuobj.innerHTML=`分数：${this.fenshu}`;
+                this.play()
+            }
+
+        }
+        let liveobj=document.querySelector(".live")
+        let fenshuobj=document.querySelector(".fenshu")
+        let dzyx=new Dzyx(liveobj,fenshuobj);
+        let shuziw=4;
+        let nshuzi=shuziw-1;
+        function daojishi() {
+        let kaichang=document.querySelector(".kaichang")
+        let shuzi=document.querySelector(".shuzi");
+        let shuzipic=document.querySelector(".shuzi>img")
+        shuzipic.src=`img/img/${nshuzi}.jpg`;
+        animate(shuzi,{width:200,height:200},500,function () {
+            nshuzi--;
+            if(nshuzi==0){
+                clearInterval(m)
+                animate(kaichang,{display:"none"})
+                dzyx.play();
+            }
+            animate(shuzi,{width:0,height:0},1)
+        })
+        }
+        let m=setInterval(daojishi,1000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+</script>

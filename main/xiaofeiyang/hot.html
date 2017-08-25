@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>热门活动</title>
+	<link rel="stylesheet" href="css/bas.css">
+	<link rel="stylesheet" href="css/hot.css">
+</head>
+<body>
+	<!--导航栏开始-->
+<iframe id="sina_anywhere_iframe" style="display: none;"></iframe>
+<header>
+ <div class="container clearfix">
+     <div class="logo">
+         <a href="#">
+             <img src="imgs/logo1.png" alt="">
+         </a>
+     </div>
+     <nav>
+         <ul style="height: auto;">
+             <li>
+                 <a href="xiaofeiyang.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+                 <span></span>
+             </li>
+             <li>
+                 <a class="topmenu" href="pingpai.html">品牌介绍</a>
+                 <span></span>
+             </li>
+             <li>
+                 <a class="topmenu displayPc" href="meiweicaidan.html">美味菜单</a>
+                 <span></span>
+             </li>
+             <li>
+                 <a href="hot.html">热门活动</a>
+                 <span></span>
+             </li>
+             <li>
+                 <a href="chaxun.html">餐厅查询</a>
+                 <span></span>
+             </li>
+             <li>
+                 <a class="topmenu" href="jiaruhuiyuan.html" data-href="/JoinUs">加入会员</a>
+                 <span></span>
+             </li>
+             <li>
+                 <a href="xinwenzhongxin.html">新闻中心</a>
+                 <span></span>
+             </li>
+             <li>
+                 <a class="" href="#" target="_blank">加盟及合作</a>
+             </li>
+         </ul>
+     </nav>
+ </div>
+</header>
+<!--导航栏结束-->
+<!-- 活动区域开始 -->
+<section class="activityPanel">
+    <div class="container">
+        <h1 class="pageTitle"><i></i><span>{</span>热门活动<span>}</span><i></i></h1>
+        <ul class="activityList">
+              <li id="activity1"><a href="/Activity/Detail/70"><img src="http://www.littlesheep.com//UploadFile//image/20170510/20170510173256_7345.jpg" alt="寻味之旅"></a></li>
+        </ul>
+    </div>
+    <div class="activityToolbar" style="position: fixed;">
+        <div class="container clearfix">
+            <div class="floatL">
+                <span>当前显示的是：<span>太原市活动</span></span>
+                  <a class="chose_city displayPc" href="javascript:void(0);">切换城市</a>
+            </div>
+            <div class="floatR displayPc">
+                <div class="royalSlider rsHor rsWithThumbs rsWithThumbsHor"><div class="rsOverflow grab-cursor" style="width: 590px; height: 0px;"><div class="rsContainer" style="transition-duration: 0s; transform: translate3d(0px, 0px, 0px);"><div style="left: 0px;" class="rsSlide "><div class="rsContent" style="visibility: visible; opacity: 1; transition: opacity 400ms ease-in-out;"></div></div></div></div><div class="rsNav rsThumbs rsThumbsHor"><div class="rsThumbsContainer" style="transition-property: -webkit-transform; transform: translate3d(212.5px, 0px, 0px); width: 169px;"><div style="margin-right:4px;" class="rsNavItem rsThumb rsNavSelected"><div class="rsTmb"><a href="javascript:void(0);" data-target="activity1">寻味之旅</a></div></div></div><div class="rsThumbsArrow rsThumbsArrowLeft rsThumbsArrowDisabled"><div class="rsThumbsArrowIcn"></div></div><div class="rsThumbsArrow rsThumbsArrowRight rsThumbsArrowDisabled"><div class="rsThumbsArrowIcn"></div></div></div></div>
+                <a class="prev" href="javascipt:;"></a>
+                <a class="next" href="javascipt:;"></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bottomBlank"></section>
+<!-- 活动区域结束 -->
+<!-- 底部开始 -->
+<footer>
+        <a id="gototop" class="gototop" href="javascript:void(0);"></a>
+        <div class="container clearfix">
+            <div class="logo"><a href="javascript:void(0)"><img src="imgs/logo1.png"></a></div>
+            <div class="copyrights displayPc">版权所有©百胜（中国）投资有限公司 沪ICP备05031779号</div>
+            <nav>
+                <ul>
+                    <li class="displayPc"><a class="wechat_weibo" href="javascript:;">关注我们<p><wb:follow-button class="btn_follow" uid="1666306835" type="red_1" width="67" height="24"><iframe src="http://widget.weibo.com/relationship/followbutton.php?btn=red&amp;style=1&amp;uid=1666306835&amp;width=67&amp;height=24&amp;language=zh_cn" width="67" height="24" frameborder="0" scrolling="no" marginheight="0"></iframe></wb:follow-button></p></a><span></span></li>
+                    <li><a href="http://careers.yumchina.com/">加入百胜</a><span></span></li>
+                    <li><a href="/Contact">联系我们</a><span></span></li>
+                    <li><a href="/Home/Privacy">隐私声明</a><span></span></li>
+                    <li><a href="/Home/Law">法律条款</a></li>
+                    <li class="displayPc">
+                    </li>
+                </ul>
+            </nav>
+            
+        </div>
+    </footer>
+<!-- 底部结束 -->
+</body>
+<script src="js/animate.js"></script>
+<script src="js/jquery.min.js"></script>
+<!-- <script src="js/demo1.js"></script> -->
+<script>
+	// 回到顶部开始
+	$(".gototop").click(function(){
+    $("html,body").animate({scrollTop:0},1000);
+    // 回到顶部结束
+})
+</script>
+</html>

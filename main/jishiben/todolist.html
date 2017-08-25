@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>documnet</title>
+    <link rel="stylesheet" href="css/todo.css">
+</head>
+<body>
+<section class="leftbar">
+    <h3><p class="iconfont qianbi">&#xe603;</p>WithMe</h3>
+    <ul class="leftlist">
+        <li class="waitli leftli">查看待办事项</li>
+        <li class="doneli leftli">查看已完成事项</li>
+    </ul>
+</section>
+<div class="main">
+    <div class="container">
+        <div class="add">
+            <p class="iconfont dingzi">&#xe601;</p>
+            <h3>添加新事项</h3>
+            <textarea autofocus class="addtext" id="text"></textarea>
+            <div class="notice">
+                <span>00</span>/40
+            </div>
+            <input type="button" value="提交" id="submit" class="btn">
+            <div class="close"><span>x</span></div>
+        </div>
+        <div class="wait item">
+            <p class="iconfont yanjing">&#xe60e;</p>
+            <h3>未完成</h3>
+            <ul>
+            </ul>
+            <input type="button" value="移动到已完成" class="move">
+            <input type="button" value="添加" class="addbtn">
+        </div>
+        <div class="done item">
+            <p class="iconfont xinxin">&#xe60a;</p>
+            <h3>已完成</h3>
+            <ul>
+            </ul>
+            <input type="button" value="清除" class="clearbtn">
+            <input type="button" value="添加" class="addbtn">
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/todo.js"></script>
+</html>

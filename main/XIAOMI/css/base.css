@@ -1,0 +1,19 @@
+*{
+	/* 通用选择器 */
+	margin: 0px;/* body默认有8px边距 */
+	padding: 0px;
+	list-style: none;  /* 清除列表的默认样式  */
+	outline: none; /* 轮廓 input */
+	box-sizing: border-box;
+	/* 不用考虑border对盒子大小的影响*/
+	font-family: "微软雅黑";
+}
+img{
+	border: 0;
+}
+/* 清除a标签的下划线 */
+a{
+	color: black;
+    text-decoration: none;
+    color: #333;
+}

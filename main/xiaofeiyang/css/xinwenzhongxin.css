@@ -1,0 +1,329 @@
+/*导航栏开始*/
+iframe {
+	border-width: 2px;
+	border-style: inset;
+	border-color: initial;
+	border-image: initial;
+}
+
+header{
+	background: url(../imgs/bg-1.jpg) 50% 0 no-repeat;
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 5px solid #7f5136;
+	position: fixed;
+	top: 0;
+	z-index: 999999;
+}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 1px 0;
+	position: relative;
+}
+.clearfix {
+	zoom: 1;
+}
+.logo{
+	float: left;
+}
+.logo a{
+	width: 100%;
+	display: block;
+}
+.logo img{
+	width: 100%;
+}
+img{
+	vertical-align: top;
+}
+img, fieldset {
+	border: 0 none;
+}
+header nav {
+	margin: 15px 0 0;
+	float: right;
+}
+nav, section {
+	display: block;
+}
+.displayMobile {
+	display: none;
+}
+header nav ul, header nav li {
+	font-size: 0;
+}
+
+header nav li {
+	display: inline-block;
+}
+header nav>ul>li>a {
+	font-size: 15px;
+	line-height: 30px;
+	color: #a6652e;
+	text-align: center;
+	width: 85px;
+	display: inline-block;
+}
+a, a:link {
+	text-decoration: none;
+}
+header nav>ul>li>span {
+	vertical-align: top;
+	height: 11px;
+	margin-top: 8px;
+	border-right: 1px solid #cea27b;
+	display: inline-block;
+}
+
+header .displayPc {
+	display: inline-block;
+}
+header nav>ul>li:last-child>a {
+	padding-right: 0;
+}
+/*导航栏结束*/
+/* 新闻部分开始 */
+.newsPanel {
+    background: #fee1ae;
+    overflow: hidden;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 1px 0;
+    position: relative;
+}
+.pageTitle {
+    font-size: 38px;
+    line-height: 150px;
+    font-weight: bold;
+    text-align: center;
+    color: #875b36;
+    padding: 60px 0 30px;
+}
+.pageTitle i {
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    padding: 0 35px;
+    border-top: 1px solid #ceac7d;
+}
+.pageTitle span {
+    font-size: 42px;
+    font-weight: normal;
+    padding: 0 10px;
+}
+.newsList {
+}
+
+ul, ol {
+    list-style: none;
+}
+.newsList li {
+    margin-bottom: 30px;
+    padding: 0 0 30px;
+    border-bottom: 1px dashed rgba(112, 88, 77, .5);
+    overflow: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.clearfix:before, .clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.newsList .sumimg {
+    float: left;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a, a:link {
+    text-decoration: none;
+}
+
+a, a:focus {
+    outline: none;
+}
+
+a, a:active, a:hover {
+    outline: none;
+}
+
+a:-webkit-any-link {
+ 
+    cursor: auto;
+
+}
+img {
+    vertical-align: top;
+    -ms-interpolation-mode: bicubic;
+}
+base.css:181
+img, fieldset {
+    border: 0 none;
+}
+.newsList h1, .newsList .sumtxt {
+    width: 715px;
+    float: right;
+}
+.newsList h1 a {
+    font-size: 18px;
+    line-height: 24px;
+    color: #875b36;
+}
+.newsList .sumtxt {
+    font-size: 12px;
+    font-family: 宋体;
+    line-height: 26px;
+    color: rgb(135, 91, 54);
+}
+
+.newsList h1, .newsList .sumtxt {
+    width: 715px;
+    float: right;
+}
+.clearfix:before, .clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.newsList .more {
+    font-size: 12px;
+    line-height: 26px;
+    color: #e90013;
+    float: right;
+}
+.newsList .sumimg {
+    float: left;
+}
+
+.newsList .sumtxt {
+    font-size: 12px;
+    font-family: 宋体;
+    line-height: 26px;
+    color: rgb(135, 91, 54);
+}
+
+.newsList h1, .newsList .sumtxt {
+    width: 715px;
+    float: right;
+}
+/* 新闻部分结束 */
+.bottomBlank {
+    background: url('../imgs/inherit_banner_img_4.png') 50% 0 no-repeat;
+    height: 151px;
+}
+/* 底部开始 */
+footer {
+	width: auto;
+	height: 54px;
+    background: #007c7d;
+    position: relative;
+}
+footer .gototop {
+    background: url('../imgs/gototop.png') 0 0 no-repeat;
+    width: 74px;
+    height: 74px;
+    position: absolute;
+    top: -90px;
+    right: 0;
+}
+footer .container {
+    padding: 0;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 1px 0;
+    position: relative;
+}
+footer .logo {
+    width: 60px;
+    margin-left: -30px;
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    overflow: hidden;
+}
+footer .logo a {
+    width: 321.7%;
+}
+.logo a {
+    width: 100%;
+    display: block;
+}
+.logo img {
+    width: 100%;
+}
+footer .displayPc {
+    display: inline-block;
+}
+.copyrights {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    float: left;
+}
+.displayPc {
+    display: block;
+    margin: 0 auto;
+}
+footer nav {
+    margin-right: -150px;
+    float: right;
+}
+footer nav li {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    height: 50px;
+    overflow: hidden;
+    display: inline-block;
+}
+footer nav li .wechat_weibo {
+    position: relative;
+}
+footer nav li a {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    vertical-align: top;
+    height: 50px;
+    padding: 0 8px;
+    display: inline-block;
+}
+footer nav li span {
+    vertical-align: top;
+    height: 15px;
+    margin-top: 18px;
+    border-right: 1px dotted #dfdfdf;
+    display: inline-block;
+}
+footer nav li {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    height: 50px;
+    overflow: hidden;
+    display: inline-block;
+}
+.copyrights {
+    font-size: 12px;
+    line-height: 50px;
+    color: #8ccccd;
+    float: left;
+}
+/* 底部结束 */

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+		<script src="../ajax.js"></script>
+		<script>
+//			var str='{"name":"lisi"}';
+//			console.log(JSON.parse(str));
+			$(function(){
+//				var ajax=window.XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP");
+//				$("button").click(function(){
+//					ajax.onreadystatechange=function(){
+//						if(ajax.readyState==4){
+//							if(ajax.status==200){
+//								var p =$("<p>").html(ajax.responseText);
+//								p.appendTo($("body"))
+//								console.log(ajax.response)
+//							}
+//						}
+//					}
+//					ajax.open("get","1.php?username="+$("input[type=text]").val()+"&password="+$("input[type=password]").val());
+//					ajax.responseType="json";
+//					ajax.send(null);
+					
+//				})
+				$("button").click(function(){
+					ajax({
+						url:"1.php",
+						data:"username"+"="+$("input[type=text]").val()+"&password="+$("input[type=password]").val(),
+						datatype:"json",
+						success:function(obj){
+							console.log(obj)
+						}
+					})
+				})
+			})
+		</script>
+	</head>
+		<style>
+			p{
+				font-size: 24px;
+				color: red;
+			}
+		</style>
+	<body>
+		账号：<input type="text" name="username"/>
+		密码:<input type="password" name="password"/><br />
+		<button>登录</button>
+	</body>
+</html>

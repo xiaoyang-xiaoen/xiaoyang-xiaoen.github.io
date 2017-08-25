@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.nav{
+				width: 1216px;
+				margin: 30px auto;
+				overflow: hidden;
+			}
+			.left{
+				width: 216px;
+				height: 54px;
+				float: left;
+			}
+			.right{
+				width: 1000px;
+				float: left;
+			}
+			.right li{
+				width: 9%;
+				box-sizing: border-box;
+				float: left;
+				text-align: center;
+				font-size: 20px;
+				line-height: 54px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			.right li:hover{
+				background-color: #FF0000;
+				color: #fff;
+			}
+			.right li.foo{
+				background-color: #FF0000;
+				color: #fff;
+			}
+			.title{
+				width: 1216px;
+				margin: 20px auto;
+			}
+			.foot{
+				width: 100%;
+			}
+			.foot li{
+				width: 100%;
+				margin-bottom: 10px;
+				border-bottom: 1px solid #eee;
+				cursor: pointer;
+			}
+			.foot li h3{
+				font-size: 24px;
+				padding-left: 15px;
+				color: #333;
+				font-weight: 500;
+			}
+			.titfoo{
+				color: #888;
+				font-size: 18px;
+				padding: 10px 15px;
+			}
+			.titfoo span{
+				margin-right: 5px;
+			}
+			#foot li{
+				padding: 0 0 25px;
+			}
+			#foot li h3{
+				font-size: 32px;
+				padding-left: 15px;
+				text-align: center;
+				color: #111;
+				font-weight: 500;
+			}
+			#foot .titfoo{
+				color: #888;
+				font-size: 18px;
+				text-align: center;
+				padding: 10px 15px;
+			}
+			#foot img{
+				display: block;
+				margin: 0 auto;
+			}
+			.art_p{
+				font-size: 18px;
+				color: #333;
+				text-indent:2em;
+			}
+		</style>
+	<body>
+		<div class="nav">
+			<div class="left"><img src="img/logo_201f80d.png" alt="" /></div>
+			<ul class="right">
+			</ul>
+		</div>
+		<div class="title">
+			<ul class="foot">
+				<!--<li>
+					<h3>中国开闸放水27天解救越南旱灾</h3>
+					<p class="titfoo">
+						<span class="time">2016-03-16 07:23</span>
+						<span class="src">来源:中国网</span>
+					</p>
+				</li>-->
+			</ul>
+		</div>
+	</body>
+	<script>
+		$(function(){
+//			let tapobj ={};
+//			let listobj={};
+//			$.ajax({
+//				dataType:"JSONP",
+//				url:"http://api.jisuapi.com/news/channel?appkey=861502a4f67b0780",
+//				success:function(obj){
+//					$.each(obj.result,function(index,value){
+//						tapobj[index]=value;
+//					})	
+//					lis();
+//				}
+//			});
+//		function lis(){
+//			$.each(tapobj,function(index,value){
+//				let tval= value;
+//				$.ajax({
+//					dataType:"JSONP",
+//					url:"http://api.jisuapi.com/news/get?channel="+value+"&start=0&num=10&appkey=861502a4f67b0780",
+//					success:function(obj){
+//						$.each(obj.result,function(index,value){
+//							listobj[tval]=value;
+//						})
+//					}
+//				})
+//			})
+//		}
+//		console.log(listobj)
+		
+
+
+
+			$.ajax({
+				dataType:"JSONP",
+				url:"http://api.jisuapi.com/news/channel?appkey=861502a4f67b0780",
+				success:function(obj){
+					localStorage.pind=JSON.stringify(obj);
+				}
+			})
+			if(localStorage.pind){
+				var pind = JSON.parse(localStorage.pind);
+				$.each(pind.result,function(index,value){
+					if(index<11){
+						$("<li>").html(value).appendTo($(".right"));
+					}
+				})
+			}
+			$(".right li").click(function(){
+				$(".right li").removeClass().eq($(this).index()).addClass("foo")
+				let that =$(this).html()
+				$.ajax({
+					dataType:"JSONP",
+					url:"http://api.jisuapi.com/news/get?channel="+$(this).html()+"&start=0&num=10&appkey=861502a4f67b0780",
+					success:function(obj){
+						if($(".foot").html()){
+							$(".foot").html("");
+						}
+						$.each(obj.result.list,function(index,value){
+							$("<li pcont="+that+">").html(function(){
+								return `
+								<h3>${value.title}</h3>
+								<p class="titfoo">
+								<span class="time">${value.time}</span>
+								<span class="src">来源:${value.src}</span>
+								</p>
+								`
+							}).appendTo($(".foot"))
+						})
+						$(".foot").attr("id","")
+					}
+				})
+			})
+			$(".foot").on("click","li",function(){
+				if(!$(this).attr("pcont")){
+					return;
+				}
+				var that = $(this);
+				$.ajax({
+					dataType:"JSONP",
+					url:"http://api.jisuapi.com/news/get?channel="+that.attr("pcont")+"&start=0&num=10&appkey=861502a4f67b0780",
+					success:function(obj){
+						$.each(obj.result.list,function(index,value){
+							if(that.find("h3").html()==value.title){
+								var li =$("<li>").html(function(){
+								return `
+								<h3>${value.title}</h3>
+								<p class="titfoo">
+								<span class="time">${value.time}</span>
+								<span class="src">来源:${value.src}</span>
+								</p>
+								<p class="cont">
+								<img src="${value.pic}" alt="" />
+								${value.content}
+								</p>
+								`
+							});
+								$(".foot").html(li).attr("id","foot");
+							}
+						})
+					}
+				})
+			})
+		})
+	</script>
+</html>
